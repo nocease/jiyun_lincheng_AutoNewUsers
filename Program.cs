@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 
 
-//如需配置（），可去Register.cs文件
+//如需配置（邀请码、冀云平台），可打开Register.cs文件
 namespace ConsoleApp1
 {
     internal class Program
@@ -15,6 +15,11 @@ namespace ConsoleApp1
         private static int m= 0;//记录解密验证码的方法是第几个
         static void Main(string[] args)
         {
+            Console.WriteLine("**************************************************************");
+            Console.WriteLine("*********************自动注册邀请冀云临城*********************");
+            Console.WriteLine("*本程序仅供交流学习，下载后请在24小时内删除，不得用于非法用途*");
+            Console.WriteLine("*************使用本程序造成的后果与开发者无关*****************");
+            Console.WriteLine("**************************************************************");
             Console.Write("请输入手机号，多个请用英文逗号隔开：");
             Stream steam = Console.OpenStandardInput();
             Console.SetIn(new StreamReader(steam, Encoding.Default, false, 5000));
@@ -85,12 +90,14 @@ namespace ConsoleApp1
                     if (result.Contains("409"))//当本程序解密方法用完，但仍无法解密时，换下一个手机号
                     {
                         Console.WriteLine("本次自动生成的随机设备id解密失败，跳过该手机号。");
+                        Console.Write("当前已成功邀请了" + n + "个新用户。");
                         break;//结束当前的发验证码循环
                     }
                    else
                    if (result.Contains("失效"))//当超过5分钟仍未成功，验证码到期，需要重新发送验证码并重新尝试
                     {
                         Console.WriteLine("验证码已过期,重新发送验证码");
+                        Console.Write("当前已成功邀请了" + n + "个新用户。");
                         do1(phone);//重新开始流程
                         break;//结束当前的发验证码循环
                     }
@@ -116,13 +123,14 @@ namespace ConsoleApp1
                             {
                                 Console.WriteLine("已成功填写预设邀请码。");
                                 n++;//计数，用来计算本次运行成功几个
+                                Console.Write("当前已成功邀请了" + n + "个新用户。");
                                 break;
                             }
                             if (v>8)//本程序内置9个解密方法，如果都试过不行，跳过该手机号
                             {
                                 Console.WriteLine("邀请失败，因为遇到了新的加密算法。");
+                                Console.Write("当前已成功邀请了" + n + "个新用户。");
                                 break;
-
                             }
                         }
                        
