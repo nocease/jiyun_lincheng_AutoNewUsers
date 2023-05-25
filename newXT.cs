@@ -13,8 +13,8 @@ namespace ConsoleApp1
             // 请求URL
             string url = "https://appapi.hebei.com.cn/api/newxtappxxdj/api/receive.php";
             // 请求内容
-            string message = "{\"appip\":\"127.0.0.1\",\"username\":\"王三\",\"ssdq\":\"邢台\",\"county\":\"临城县\",\"company\":\"赵庄乡\",\"nickname\":\""+ myUtil.get32str() + "\",\"phone\":\""+ myUtil.GenerateRandomPhoneNumber() + "\",\"imei\":\""+ myUtil.get32str() + " \"}";
-           /* string openid = myUtil.get32str();
+            string message = "{\"appip\":\"127.0.0.1\",\"username\":\"王六\",\"ssdq\":\"邢台\",\"county\":\"临城县\",\"company\":\"赵庄乡\",\"nickname\":\"" + myUtil.get32str() + "\",\"phone\":\""+ myUtil.GenerateRandomPhoneNumber() + "\",\"imei\":\""+ myUtil.get32str() + " \"}";
+            /* string openid = myUtil.get32str();
             string timesTamp= DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString();
             string sign =myUtil.getMD5(openid+"5fc57e4d03c3ff0fd0bf19cd48eeb7de" + timesTamp);
             string userid= myUtil.get32str();*/

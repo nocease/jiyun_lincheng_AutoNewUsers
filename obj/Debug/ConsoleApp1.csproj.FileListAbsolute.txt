@@ -34,3 +34,15 @@ C:\Users\nocease\Desktop\MyProgect\jiyun_lincheng_AutoNewUsers\trunk\obj\Debug\C
 C:\Users\nocease\Desktop\MyProgect\jiyun_lincheng_AutoNewUsers\trunk\obj\Debug\ConsoleApp1.csproj.CopyComplete
 C:\Users\nocease\Desktop\MyProgect\jiyun_lincheng_AutoNewUsers\trunk\obj\Debug\ConsoleApp1.exe
 C:\Users\nocease\Desktop\MyProgect\jiyun_lincheng_AutoNewUsers\trunk\obj\Debug\ConsoleApp1.pdb
+D:\MyPeogect\jiyun_lincheng_AutoNewUsers.git\trunk\bin\Debug\ConsoleApp1.exe.config
+D:\MyPeogect\jiyun_lincheng_AutoNewUsers.git\trunk\bin\Debug\ConsoleApp1.exe
+D:\MyPeogect\jiyun_lincheng_AutoNewUsers.git\trunk\bin\Debug\ConsoleApp1.pdb
+D:\MyPeogect\jiyun_lincheng_AutoNewUsers.git\trunk\bin\Debug\Json.Net.dll
+D:\MyPeogect\jiyun_lincheng_AutoNewUsers.git\trunk\bin\Debug\Newtonsoft.Json.dll
+D:\MyPeogect\jiyun_lincheng_AutoNewUsers.git\trunk\bin\Debug\Newtonsoft.Json.xml
+D:\MyPeogect\jiyun_lincheng_AutoNewUsers.git\trunk\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+D:\MyPeogect\jiyun_lincheng_AutoNewUsers.git\trunk\obj\Debug\ConsoleApp1.csproj.SuggestedBindingRedirects.cache
+D:\MyPeogect\jiyun_lincheng_AutoNewUsers.git\trunk\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+D:\MyPeogect\jiyun_lincheng_AutoNewUsers.git\trunk\obj\Debug\ConsoleApp1.csproj.CopyComplete
+D:\MyPeogect\jiyun_lincheng_AutoNewUsers.git\trunk\obj\Debug\ConsoleApp1.exe
+D:\MyPeogect\jiyun_lincheng_AutoNewUsers.git\trunk\obj\Debug\ConsoleApp1.pdb
