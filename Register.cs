@@ -16,7 +16,7 @@ namespace ConsoleApp1
         //判断是否注册
         public static string isregister(string phone)
         {
-            string currentTimeMillis = DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString(); ;
+            string currentTimeMillis = DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString();
             string signature =  siteId + "1.9.3" + phone + currentTimeMillis + "224e839335d1408a9a2c8d8e2cf2c4e8" + appid + "android";
             signature = myUtil.getMD5(signature);
             Ajax ajax1 = new Ajax();
@@ -30,7 +30,7 @@ namespace ConsoleApp1
         //发送验证码
         public static string sendCode(string phone)
         {
-            string currentTimeMillis = DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString(); ;
+            string currentTimeMillis = DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString(); 
             string signature =  siteId + "1.9.3" + phone + currentTimeMillis + "224e839335d1408a9a2c8d8e2cf2c4e8" + appid + "android";
             signature = myUtil.getMD5(signature);
             Ajax ajax1 = new Ajax();

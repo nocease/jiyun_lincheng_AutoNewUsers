@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Ajax.cs" />
     <Compile Include="myUtil.cs" />
+    <Compile Include="newXT.cs" />
     <Compile Include="Register.cs" />
     <Compile Include="NoExit.cs" />
     <Compile Include="Program.cs" />

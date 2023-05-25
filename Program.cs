@@ -11,9 +11,15 @@ namespace ConsoleApp1
     internal class Program
     {
         private static int n = 0;//记录成功数量
-
         private static int m= 0;//记录解密验证码的方法是第几个
         static void Main(string[] args)
+        {
+            begJiYunLinCheng();//冀云临城注册邀请
+            //for(int bb = 0; bb < 5; bb++) newXT.infoUpd();//新邢台信息登记
+         
+            NoExit.exit1();
+        }
+         static void begJiYunLinCheng()
         {
             Console.WriteLine("**************************************************************");
             Console.WriteLine("*********************自动注册邀请冀云临城*********************");
@@ -32,10 +38,8 @@ namespace ConsoleApp1
                 m = 0;//默认使用第一个解密方法
                 do1(phone);
             }
-            Console.Write("程序运行结束。成功邀请了"+n+"个新用户。");
-            NoExit.exit1();
+            Console.Write("程序运行结束。成功邀请了" + n + "个新用户。");
         }
-
   
         static void do1(string phone)
         {

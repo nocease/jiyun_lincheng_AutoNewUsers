@@ -7,6 +7,20 @@ namespace ConsoleApp1
 {
     internal class myUtil
     {
+        //随机获取手机号
+        public static string GenerateRandomPhoneNumber()
+        {
+            Random random = new Random();
+            // 中国手机号的前三位数字
+            string[] prefixes = { "134", "135", "136", "137", "138", "139", "150", "151", "152", "157", "158", "159", "182", "183", "184", "187", "188", "147", "178", "170", "171", "173", "175", "176", "198", "199" };
+            // 随机选择一个前缀
+            string prefix = prefixes[random.Next(prefixes.Length)];
+            // 生成剩下的 8 位数字
+            string suffix = random.Next(10000000, 99999999).ToString();
+            // 拼接手机号
+            string phoneNumber = prefix + suffix;
+            return phoneNumber;
+        }
         //MD5
         public static string getMD5(string  str)
         {
