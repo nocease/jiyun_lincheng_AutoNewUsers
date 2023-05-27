@@ -15,8 +15,8 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             begJiYunLinCheng();//冀云临城注册邀请
-            //for(int bb = 0; bb < 2000; bb++) newXT.infoUpd();//新邢台信息登记
-         
+            //for (int bb = 0; bb < 500; bb++) newXT.infoUpd(); Console.Write("OK");//新邢台信息登记
+
             NoExit.exit1();
         }
          static void begJiYunLinCheng()
