@@ -10,44 +10,56 @@ namespace ConsoleApp1
         public string Url { get; set; }
         public string Method { get; set; } = "GET";
         public string ContentType { get; set; } = "application/x-www-form-urlencoded";
-
-       // public string cookieString { get; set; }
         public string Body { get; set; }
 
         public string MakeRequest()
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
-            request.Method = Method;
-            request.ContentType = ContentType;
-            //request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.64";
+            int retryCount = 10;
+            string result = "";
 
-
-            if (!string.IsNullOrEmpty(Body))
+            while (retryCount > 0)
             {
-                byte[] data = Encoding.UTF8.GetBytes(Body);
-                request.ContentLength = data.Length;
-                Stream stream = request.GetRequestStream();
-                stream.Write(data, 0, data.Length);
-            }
-            try
-            {
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
+                request.Method = Method;
+                request.ContentType = ContentType;
+                //request.UserAgent = "okhttp/3.12.12";
 
-                string result;
-                using (Stream stream = response.GetResponseStream())
+                if (!string.IsNullOrEmpty(Body))
                 {
-                    StreamReader reader = new StreamReader(stream, Encoding.UTF8);
-                    result = reader.ReadToEnd();
+                    byte[] data = Encoding.UTF8.GetBytes(Body);
+                    request.ContentLength = data.Length;
+                    Stream stream = request.GetRequestStream();
+                    stream.Write(data, 0, data.Length);
                 }
-                return result;
-            }
-            catch (Exception e1)
-            {
-                Console.WriteLine("出现一个网络错误。");
-                return "";
-            }
-            
-        }
 
+                try
+                {
+                    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                    using (Stream stream = response.GetResponseStream())
+                    {
+                        StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+                        result = reader.ReadToEnd();
+                    }
+
+                    if (response.StatusCode == HttpStatusCode.InternalServerError)
+                    {
+                        //Console.WriteLine("服务器返回了500错误。正在尝试重新发送请求。");
+                        retryCount--;
+                    }
+                    else
+                    {
+                        return result;
+                    }
+                }
+                catch (Exception e1)
+                {
+                   Console.WriteLine("出现一个请求错误。");
+                    retryCount--;
+                }
+            }
+
+            //Console.WriteLine("已达到重试次数上限。");
+            return result;
+        }
     }
 }
