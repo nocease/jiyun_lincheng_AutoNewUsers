@@ -34,7 +34,7 @@ namespace ConsoleApp1
             //开始循环手机号
             foreach (string phone in phones2)
             {
-                Register.appid = myUtil.get32str();//使用随机设备id
+                //Register.appid = myUtil.get32str();//使用随机设备id
                 do1(phone);
             }
             Console.WriteLine("**************************************************************");
@@ -84,7 +84,7 @@ namespace ConsoleApp1
             }
             else //手机号已被注册
             {
-                Console.WriteLine("该手机号已被注册。");
+                Console.WriteLine("该手机号已被注册或不可用。"+phone);
                 Console.WriteLine("当前已成功邀请了" + n + "个新用户。");
             }
         }

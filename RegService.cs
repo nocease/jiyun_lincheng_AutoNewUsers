@@ -18,7 +18,6 @@ namespace ConsoleApp1
         private static int g = 1;
         private static int h = 1;
 
-        //判断是否注册，同时尝试递归算法获取使用能解密的设备id
         public static string isregister(string phone)
         {
             string result = Register.isregister(phone, a);
@@ -29,9 +28,10 @@ namespace ConsoleApp1
                 if (a >2)
                 {
                     a = 1;
-                    Register.appid = myUtil.get32str();//换个设备id重试
-                    isregister(phone);//递归算法
-                    break;
+                    //Register.appid = myUtil.get32str();//换个设备id重试
+                    //isregister(phone);//递归算法
+                    //break;
+                    return "1";
                 } 
             }
             dynamic registerjson = JsonConvert.DeserializeObject(result);
@@ -52,15 +52,9 @@ namespace ConsoleApp1
                     break;
                 }
             }
-            while (result.Contains("发送失败"))
+            if (result.Contains("发送失败"))
             {
-                c++;
-                sendCode(phone);
-                if (c > 30)
-                {
-                    c = 1;
-                    break;
-                }
+                result = Register.sendCode(phone, b);
             }
             Console.WriteLine(result);
             return result;//包含200表示成功，包含409表示解密失败，包含1分钟内重复表示需等待,包含发送失败表示500错误

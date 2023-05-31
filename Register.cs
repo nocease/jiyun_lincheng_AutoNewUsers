@@ -11,7 +11,7 @@ namespace ConsoleApp1
         public static string siteId = "0cc8438f6b9f489eb8bdd1063c357721";//表示冀云平台，这个表示【冀云临城】，可自定义。软件下载页链接包含该id
 
         //随机设备id，不用改
-        public static string appid = "";//设备id
+        public static string appid = "46194da9303d3cc6a6a8ed33219cb0c8";//设备id
 
 
         //判断是否注册
