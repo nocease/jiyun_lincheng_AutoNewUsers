@@ -1,8 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
 using System.Linq;
-using System.Security.Policy;
 using System.Text;
 
 
@@ -15,9 +14,24 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             begJiYunLinCheng();//冀云临城注册邀请
+
+
             //for (int bb = 0; bb < 1000; bb++) newXT.infoUpd(); Console.Write("OK");//新邢台信息登记
 
-            NoExit.exit1();
+            //登录数据库内已注册的账号
+            /*MySqlConnector mySqlConnector = new MySqlConnector();
+            JArray jsonArray = JArray.Parse(mySqlConnector.queryList("select phone from phones"));
+            foreach (JObject jsonObject in jsonArray)
+            {
+                string phone = jsonObject["phone"].ToString();
+                Console.WriteLine(phone);
+                string userid = RegService.dologin(phone);
+                Console.WriteLine(userid);
+                MySqlConnector mySqlConnector1 = new MySqlConnector();
+                mySqlConnector1.doSQL("update phones set msg=\"" + userid + "\" where phone=" + phone);
+            }
+            Console.WriteLine("OK");
+            NoExit.exit1();*/
         }
         static void begJiYunLinCheng()
         {
@@ -68,7 +82,7 @@ namespace ConsoleApp1
                         {
                             //注册成功
                             Console.WriteLine("已使用预设密码注册成功。");
-                            string userid = Register.dologin(phone);//尝试登陆该账户
+                            string userid = RegService.dologin(phone);//尝试登陆该账户
                             Console.WriteLine("已成功登录该账号！" + phone + ":" + userid);
                             //开始尝试填写邀请码
                             if (RegService.setInviteCode(userid).Contains("200"))

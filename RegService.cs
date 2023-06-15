@@ -1,9 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
@@ -18,8 +14,10 @@ namespace ConsoleApp1
         private static int g = 1;
         private static int h = 1;
 
+        //验证是否注册
         public static string isregister(string phone)
         {
+            a = 1;
             string result = Register.isregister(phone, a);
             while (!result.Contains("200"))
             {
@@ -41,6 +39,7 @@ namespace ConsoleApp1
         //发送验证码
         public static string sendCode(string phone)
         {
+            b = 1;
             string result = Register.sendCode(phone, b);
             while (result.Contains("409"))
             {
@@ -82,6 +81,7 @@ namespace ConsoleApp1
         //输入邀请码
         public static string setInviteCode(string userId)
         {
+            e = 1;
             string result = Register.setInviteCode(userId, e);
             while (!result.Contains("200"))
             {
@@ -97,5 +97,45 @@ namespace ConsoleApp1
             return result;
         }
 
+        //修改密码
+        public static string dochangePass(string userid)
+        {
+            f = 1;
+            string result = Register.dochangePass(userid, f);
+            while (result.Contains("409"))
+            {
+                f++;
+                result = Register.dochangePass(userid, f);
+                if (f > 9)
+                {
+                    f= 1;
+                    Console.WriteLine("本程序所有解密方法都无法解密本次修改密码操作");
+                    break;
+                }
+            }
+            return result;
+        }
+         //登录
+        public static string dologin(string phone)
+        {
+            g = 1;
+            string result = Register.dologin(phone, g);
+            while (result.Contains("409"))
+            {
+                g++;
+                result = Register.dologin(phone, g);
+                if (g>3)
+                {
+                    g = 1;
+                    Console.WriteLine("本程序所有解密方法都无法解密本次登录操作");
+                    break;
+                }
+                
+            }
+            dynamic json1 = JsonConvert.DeserializeObject(result);
+            return json1.id;
+        }
+
     }
 }
+        
